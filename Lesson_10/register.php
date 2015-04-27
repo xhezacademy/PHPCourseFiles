@@ -20,7 +20,7 @@
       <label for="confirm_password">Confirm Password</label>
       <input type="password" name="confirm_password"><br>
 
-      <input type="submit" name="submit">
+      <input type="submit" name="submit" value="Register">
     </form>
   </div>
 </body>
