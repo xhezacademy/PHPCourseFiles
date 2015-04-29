@@ -1,21 +1,23 @@
 <?php
-require_once('connection.php');
+include_once('inc/header.php');
 
-$sql = 'SELECT * FROM `users`';
-$result = $mysqli->query($sql);
+if (isset($_SESSION['user'])) {
+    $sql = 'SELECT * FROM `users`';
+    $html = '<table border=1 cellpadding=5 cellspacing=0>';
+    $result = $mysqli->query($sql);
 
-$html = '<table border=1 cellpadding=5 cellspacing=0>';
-while ($row = $result->fetch_object()) {
-    $html .= <<<HTML
-    <tr>
-      <td>$row->id</td>
-      <td>$row->name</td>
-      <td>$row->email</td>
-    </tr>
+    while ($user = $result->fetch_object()) {
+        $html .= <<<HTML
+        <tr>
+          <td>$user->id</td>
+          <td>$user->name</td>
+          <td>$user->email</td>
+        </tr>
 HTML;
+    }
+
+    $html .= '</table>';
+    $mysqli->close();
+    print $html;
 }
 
-$html .= '</table>';
-print $html;
-
-$mysqli->close();
