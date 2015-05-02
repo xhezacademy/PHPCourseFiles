@@ -14,6 +14,7 @@
             <a href="/">Home</a>
 
             <?php
+            $html = '';
             if (isset($_SESSION['user'])):
                 $html .= '<a href="account.php">Account</a>';
                 $html .= '<a href="logout.php">Logout</a>';
