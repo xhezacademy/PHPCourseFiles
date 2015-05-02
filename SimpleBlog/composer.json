@@ -1,0 +1,17 @@
+{
+	"name": "PoentaLabs/SimpleBlog",
+    "description": "A Very Simple Blog App.",
+    "keywords": ["blogging", "weblog", "albanian"],
+    "homepage": "http://github.com/poentalabs/SimpleBlog",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Poenta Labs",
+            "email": "email@poentalabs.com",
+            "homepage": "http://poentalabs.com"
+        }
+    ],
+    "require": {
+        "ircmaxell/password-compat": "dev-master"
+    }
+}
