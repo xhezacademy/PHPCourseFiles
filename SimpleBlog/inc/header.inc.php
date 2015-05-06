@@ -16,6 +16,7 @@
             <?php
             $html = '';
             if (isset($_SESSION['user'])):
+                $html .= '<a href="write.php">Write Post </a>';
                 $html .= '<a href="account.php">Account</a>';
                 $html .= '<a href="logout.php">Logout</a>';
             else:

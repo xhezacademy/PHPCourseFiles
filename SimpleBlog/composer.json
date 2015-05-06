@@ -12,6 +12,7 @@
         }
     ],
     "require": {
-        "ircmaxell/password-compat": "dev-master"
+        "ircmaxell/password-compat": "dev-master",
+		"nesbot/carbon": "^1.18"
     }
 }

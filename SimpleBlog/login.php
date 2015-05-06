@@ -8,7 +8,9 @@ if (isset($_POST['submit'])) {
 	$sql = "SELECT email, password FROM users WHERE email = :email";
 	$stmt = $db->prepare($sql);
 	// $stmt->bindValue(':email', $email);
-	$stmt->execute([':email' => $email]);
+	$arr = [':email' => $email];
+	$stmt->execute($arr);
+
 	$user = $stmt->fetchObject();
 
 	if ($user) {
