@@ -12,7 +12,7 @@ class PostsController extends Controller
     {
         $posts = DB::table('posts')->get();
 
-        return $this->view('posts/index', compact('posts'));
+        $this->view('posts/index', compact('posts'));
     }
 
     public function show($id)
@@ -23,7 +23,7 @@ class PostsController extends Controller
         //   die('There is no post with that ID.');
         // }
 
-        return $this->view('posts/show', [
+        $this->view('posts/show', [
             'title' => $post->title,
             'body'  => $post->body,
         ]);
@@ -37,7 +37,7 @@ class PostsController extends Controller
     public function postCreate()
     {
         $title = Input::get('title');
-        $body = Input::get('body');
+        $body  = Input::get('body');
 
         if (empty($title) || empty($body)) {
             die('Title and/or body cannot be empty.');

@@ -3,7 +3,7 @@
 <ol>
 {% for post in posts %}
   <li>
-    <h2><a href="show/{{ post.id }}">{{ post.title }}</a>
+    <h2><a href="{{ post.showUrl() }}">{{ post.title }}</a>
       <small><a href="edit/{{ post.id }}">Edit</a></small>
       <small><a href="delete/{{ post.id }}">Delete</a></small>
     </h2>
