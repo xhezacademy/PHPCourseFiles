@@ -1,5 +1,5 @@
 {
-	"name": "PoentaLabs/SimpleBlog",
+    "name": "poentalabs/SimpleBlog",
     "description": "A Very Simple Blog App.",
     "keywords": ["blogging", "weblog", "albanian"],
     "homepage": "http://github.com/poentalabs/SimpleBlog",
@@ -13,6 +13,17 @@
     ],
     "require": {
         "ircmaxell/password-compat": "dev-master",
-		"nesbot/carbon": "^1.18"
+        "usmanhalalit/pixie": "1.*@dev",
+        "nesbot/carbon": "^1.18",
+        "twig/twig": "~1.0"
+    },
+    "require-dev": {
+        "filp/whoops": "^1.1"
+    },
+    "autoload": {
+        "classmap": [
+            "app/models",
+            "app/core"
+        ]
     }
 }

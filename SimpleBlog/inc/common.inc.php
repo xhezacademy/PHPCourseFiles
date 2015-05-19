@@ -21,11 +21,6 @@ include_once INC_DIR . '/database.inc.php';
 include_once MAIN_DIR . '/app/models/User.php';
 include_once MAIN_DIR . '/app/models/Post.php';
 
-/**
- * Vendor Packages Autoload
- */
-require_once 'vendor/autoload.php';
-
 
 /**
  * Start Session
