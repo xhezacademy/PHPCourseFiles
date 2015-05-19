@@ -3,8 +3,9 @@
 <ol>
 {% for post in posts %}
   <li>
-    <h2><a href="posts/show/{{ post.id }}">{{ post.title }}</a>
-      <small><a href="posts/edit/{{ post.id }}">Edit</a></small>
+    <h2><a href="show/{{ post.id }}">{{ post.title }}</a>
+      <small><a href="edit/{{ post.id }}">Edit</a></small>
+      <small><a href="delete/{{ post.id }}">Delete</a></small>
     </h2>
   </li>
 {% endfor %}

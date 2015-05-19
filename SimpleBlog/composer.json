@@ -24,6 +24,9 @@
         "classmap": [
             "app/models",
             "app/core"
+        ],
+        "files": [
+            "app/core/Helpers.php"
         ]
     }
 }

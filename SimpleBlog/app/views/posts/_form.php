@@ -1,4 +1,4 @@
-<form action="http://localhost/PHPCourseFiles/SimpleBlog/public/posts/update" method="post">
+<form action="http://localhost/PHPCourseFiles/SimpleBlog/public/posts/postCreate" method="post">
   <p>
     <label for="title">Title</label>
     <br>

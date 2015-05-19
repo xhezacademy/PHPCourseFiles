@@ -1,17 +1,18 @@
 <?php
+// namespace SimpleBlog\Controllers;
 
 /**
-* 
+*
 */
 class HomeController extends Controller
 {
-	public function index()
-	{
-		echo 'home/index';
-	}
+    public function index()
+    {
+        echo 'home/index';
+    }
 
-	public static function about()
-	{
-		echo 'home/about';
-	}
+    public static function about()
+    {
+        echo 'home/about';
+    }
 }
