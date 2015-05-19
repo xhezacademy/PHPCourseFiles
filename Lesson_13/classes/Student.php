@@ -1,4 +1,5 @@
 <?php
+namespace project\classes;
 
 /**
  * Class Student

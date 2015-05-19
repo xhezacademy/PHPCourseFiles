@@ -1,7 +1,10 @@
 <?php
 
-require_once 'Person.php';
-require_once 'Student.php';
+require_once 'classes/Person.php';
+require_once 'classes/Student.php';
+require_once 'helpers/Date.php';
+
+use Project\Helpers\Date as Data;
 
 // echo Person::$className;
 // $person = new Person();
@@ -9,7 +12,8 @@ require_once 'Student.php';
 
 $name = 'Valon';
 $school = 'Poenta Training Academy';
-$student = new Student($name, $school, 15);
+$student = new \Project\Classes\Student($name, $school, 15);
 
 echo 'Hello ' . $student->name . '.<br>';
 echo 'Welcome to ' . $student->school . '.<br>';
+echo Data::now();
