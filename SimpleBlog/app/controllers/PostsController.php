@@ -46,10 +46,15 @@ class PostsController extends Controller
         $slug = strtolower(str_replace(' ', '-', $title));
         $pub_date = Carbon\Carbon::now();
 
+        $user = DB::table('users')
+            ->where('email', '=', $_SESSION['user'])
+            ->first();
+
         $data = array(
             'title' => $title,
             'slug'  => $slug,
             'body'  => $body,
+            'user_id' => $user->id,
             'created_at' => $pub_date,
             'updated_at' => $pub_date,
         );
@@ -57,7 +62,7 @@ class PostsController extends Controller
         $insertId = DB::table('posts')->insert($data);
 
         if (!empty($insertId)) {
-            header('Location: show/'.$insertId);
+            header('Location: show/' . $insertId);
         }
     }
 
