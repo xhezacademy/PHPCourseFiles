@@ -10,3 +10,8 @@ define('HTTP_ROOT', INC_ROOT);
 require_once INC_ROOT . '/vendor/autoload.php';
 
 require_once INC_ROOT . '/app/database.php';
+
+/**
+ * Start Session
+ */
+session_start();

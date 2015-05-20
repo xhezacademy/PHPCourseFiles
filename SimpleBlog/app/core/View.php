@@ -37,10 +37,10 @@ class View
         $this->twig = new Twig_Environment($twigLoader,
         [
             'cache' => INC_ROOT . '/app/cache',
-            'debug' => true,
+            // 'debug' => true,
         ]);
 
-        $this->twig->addExtension(new Twig_Extension_Debug());
+        // $this->twig->addExtension(new Twig_Extension_Debug());
         $this->twig->addGlobal('ASSET_ROOT', ASSET_ROOT);
         $this->twig->addGlobal('HTTP_ROOT', HTTP_ROOT);
     }
