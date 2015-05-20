@@ -36,11 +36,11 @@ class View
         $twigLoader = new Twig_Loader_Filesystem(INC_ROOT . '/app/views', '__main__');
         $this->twig = new Twig_Environment($twigLoader,
         [
-            'cache' => INC_ROOT . '/app/cache',
-            // 'debug' => true,
+            // 'cache' => INC_ROOT . '/app/cache',
+            'debug' => true,
         ]);
 
-        // $this->twig->addExtension(new Twig_Extension_Debug());
+        $this->twig->addExtension(new Twig_Extension_Debug());
         $this->twig->addGlobal('ASSET_ROOT', ASSET_ROOT);
         $this->twig->addGlobal('HTTP_ROOT', HTTP_ROOT);
     }

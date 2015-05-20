@@ -1,14 +1,13 @@
 <?php
 
 /**
-*
-*/
+ * Authentication Class
+ */
 class AuthController extends Controller
 {
     public function login()
     {
         $this->view('auth/login', null);
-
     }
 
     public function postLogin()
@@ -24,11 +23,13 @@ class AuthController extends Controller
 
             if ($user) {
                 $checkPassword = password_verify($pass, $user->password);
-                if ($checkPassword) {
-                    $_SESSION['user'] = $user->email;
 
-                    header('Location: ../');
+                if (!$checkPassword) {
+                    die('Password did not match.');
                 }
+
+                $_SESSION['user'] = $user->email;
+                header('Location: ../');
             } else {
                 die('There is no user with that email.');
             }
