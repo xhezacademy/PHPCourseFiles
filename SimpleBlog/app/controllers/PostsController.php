@@ -4,29 +4,26 @@
 // use SimpleBlog\Core\Controller;
 
 /**
-* Posts Controller
-*/
+ * Posts Controller
+ */
 class PostsController extends Controller
 {
     public function index()
     {
-        $posts = DB::table('posts')->get();
+        $posts = Post::findMany();
 
         $this->view('posts/index', compact('posts'));
     }
 
     public function show($id)
     {
-        $post = DB::table('posts')->find($id);
+        $post = Post::findOne($id);
 
         // if ($post === null) {
         //   die('There is no post with that ID.');
         // }
 
-        $this->view('posts/show', [
-            'title' => $post->title,
-            'body'  => $post->body,
-        ]);
+        $this->view('posts/show', compact('post'));
     }
 
     public function create()
@@ -46,9 +43,7 @@ class PostsController extends Controller
         $slug = strtolower(str_replace(' ', '-', $title));
         $pub_date = Carbon\Carbon::now();
 
-        $user = DB::table('users')
-            ->where('email', '=', $_SESSION['user'])
-            ->first();
+        $user = User::where('email', $_SESSION['user'])->findOne();
 
         $data = array(
             'title' => $title,
@@ -59,7 +54,10 @@ class PostsController extends Controller
             'updated_at' => $pub_date,
         );
 
-        $insertId = DB::table('posts')->insert($data);
+        $post = Post::create();
+        // $post->title = $title;
+        $post->set($data);
+        $post->save();
 
         if (!empty($insertId)) {
             header('Location: show/' . $insertId);
@@ -68,38 +66,42 @@ class PostsController extends Controller
 
     public function edit($id)
     {
-        $post = DB::table('posts')->find($id);
+        $post = Post::findOne($id);
 
         return $this->view('posts/edit', compact('post'));
     }
 
     public function update()
     {
-        $id = $_POST['post_id'];
+        $id = Input::get('post_id');
+
         $data = array(
-            'title' => $_POST['title'],
-            'body'  => $_POST['body'],
+            'title' => Input::get('title'),
+            'body'  => Input::get('body'),
         );
 
-        $post = DB::table('posts')->where('id', $id)->update($data);
+        $post = Post::findOne($id)->set($data);
 
-        if ($post === null) {
-            header('Location: show/'.$id);
+        if ($post->save()) {
+            header('Location: ' . HTTP_ROOT . 'posts/show/' . $id);
         }
     }
 
+    /**
+     * Delete a Post
+     * @param  (int) $id Post ID.
+     * @return (void)
+     */
     public function delete($id)
     {
         if (empty($id)) {
             die('Empty ID');
         }
 
-        DB::table('posts')->where('id', '=', $id)->delete();
+        $post = Post::findOne($id);
 
-        $post = DB::table('posts')->find($id);
-
-        if ($post === null) {
-            header('Location: ../');
+        if ($post->delete()) {
+            header('Location: ' . HTTP_ROOT . 'posts/');
         }
     }
 }

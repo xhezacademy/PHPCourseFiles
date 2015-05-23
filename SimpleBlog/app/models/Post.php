@@ -2,20 +2,19 @@
 
 use Carbon\Carbon;
 
-/**
-*
-*/
-class Post
+class Post extends Model
 {
-    protected $table = 'posts';
+	public static $_table = 'posts';
 
-    // function __construct(argument)
-    // {
-        # code...
-    // }
+	public function user()
+	{
+		return $this->belongsTo('User', 'user_id');
+	}
 
     public function pubDate()
     {
-        return Carbon::createFromDate(2015, 7, 20, 'GMT')->diffForHumans();
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
+
+        return $date->diffForHumans();
     }
 }

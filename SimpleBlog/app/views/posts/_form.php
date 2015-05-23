@@ -1,4 +1,4 @@
-<form action="http://localhost/PHPCourseFiles/SimpleBlog/public/posts/postCreate" method="post">
+<form action="{{ HTTP_ROOT }}posts/update" method="post">
   <p>
     <label for="title">Title</label>
     <br>
@@ -13,7 +13,7 @@
 {{ post.body|trim }}{% endif %}
     </textarea>
   </p>
-  
+
   <input type="hidden" name="post.id" value="{{ post.id }}">
   <input type="submit" name="publish" value="Submit">
 </form>

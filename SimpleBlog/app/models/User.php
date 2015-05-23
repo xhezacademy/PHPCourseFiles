@@ -2,13 +2,12 @@
 /**
  * User Model
  */
-class User
+class User extends Model
 {
-    public $name;
-    public $email;
+	public static $_table = 'users';
 
-    public function __construct($password)
-    {
-        $this->password = $password;
+	public function posts()
+	{
+        return $this->hasMany('Post');
     }
 }
