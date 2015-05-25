@@ -7,8 +7,10 @@
  * The base controller for all other controllers. Extend this for each
  * created controller and get access to it's wonderful functionality.
  */
-class Controller
+abstract class Controller
 {
+    protected $layout = 'layout/main.php';
+
     /**
      * Render a view
      *
@@ -39,4 +41,6 @@ class Controller
 
         return new $model();
     }
+
+    //abstract protected function setBaseLayout($name);
 }

@@ -5,8 +5,8 @@ use Whoops\Run as WhoopsRun;
 use Whoops\Handler\PrettyPageHandler as WhoopsPrettyPageHandler;
 
 /**
-*
-*/
+ *
+ */
 class App
 {
     /**

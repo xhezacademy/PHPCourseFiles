@@ -104,4 +104,6 @@ class PostsController extends Controller
             header('Location: ' . HTTP_ROOT . 'posts/');
         }
     }
+
+    protected function setBaseLayout($name) {}
 }
