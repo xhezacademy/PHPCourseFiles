@@ -10,4 +10,11 @@ class User extends Model
 	{
         return $this->hasMany('Post');
     }
+
+    public static function isAuthenticated()
+    {
+        if (array_key_exists('user', $_SESSION) && !empty($_SESSION['user'])) {
+            return self::where('email', $_SESSION['user'])->findOne();
+        }
+    }
 }

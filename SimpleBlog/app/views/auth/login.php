@@ -4,7 +4,7 @@
 
 {% block main %}
 <div id="wrap">
-    <form method="POST" action="http://localhost/PHPCourseFiles/SimpleBlog/public/auth/postLogin">
+    <form method="POST" action="{{ HTTP_ROOT ~ 'auth/postLogin' }}">
         <label for="email">Email</label>
         <input type="email" name="email">
         <br>

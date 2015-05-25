@@ -20,10 +20,7 @@ class AuthController extends Controller
             $email = Input::get('email');
             $pass = Input::get('password');
 
-            $user = DB::table('users')
-                ->where('email', '=', $email)
-                // ->asObject('User', [])
-                ->first();
+            $user = User::where('email', $email)->findOne();
 
             if ($user) {
                 $checkPassword = password_verify($pass, $user->password);
@@ -33,7 +30,7 @@ class AuthController extends Controller
                 }
 
                 $_SESSION['user'] = $user->email;
-                header('Location: ../');
+                header('Location: ' . HTTP_ROOT);
             } else {
                 die('There is no user with that email.');
             }
@@ -73,10 +70,10 @@ class AuthController extends Controller
                 'password' => $encrypt,
             );
 
-            $insertId = DB::table('users')
-                ->insert($data);
+            $user = User::create();
+            $user->set($data);
 
-            if (isset($insertId)) {
+            if ($user->save()) {
                 header('Location: ' . HTTP_ROOT);
             }
         }
