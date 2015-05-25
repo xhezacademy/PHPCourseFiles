@@ -2,13 +2,13 @@
 
 use Carbon\Carbon;
 
-class Post extends Model
+class Post extends Model implements ModelInterface
 {
 	public static $_table = 'posts';
 
 	public function user()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('User', 'user_id');
 	}
 
     public function pubDate()

@@ -6,7 +6,12 @@
     <h2>Account Page</h2>
 
     <div class="col-md-6">
-        <form method="post" action="{{ HTTP_ROOT }}users/update">
+        <form method="post" action="{{ HTTP_ROOT }}users/update" enctype="multipart/form-data">
+            <div class="form-control">
+                <label for="avatar">Avatar Image</label>
+                <input type="file" name="avatar">
+            </div>
+            <br>
             <div class="form-control">
                 <label for="old_pass">Old Password</label>
                 <input type="password" name="old_pass">

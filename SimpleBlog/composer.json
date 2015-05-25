@@ -13,6 +13,7 @@
     ],
     "require": {
         "ircmaxell/password-compat": "dev-master",
+        "intervention/image": "^2.2",
         "nesbot/carbon": "^1.18",
         "j4mie/paris": "^1.5",
         "twig/twig": "~1.0"
@@ -22,6 +23,8 @@
     },
     "autoload": {
         "classmap": [
+            "app/controllers",
+            "app/interfaces",
             "app/models",
             "app/core"
         ],

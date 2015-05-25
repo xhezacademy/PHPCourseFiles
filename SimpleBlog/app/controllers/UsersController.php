@@ -1,5 +1,7 @@
 <?php
 
+use Intervention\Image\ImageManagerStatic as Image;
+
 /**
  * Controller to handle User related routes
  */
@@ -48,18 +50,17 @@ class UsersController extends Controller
             $old_pass = Input::get('old_pass');
             $new_pass = password_hash(Input::get('new_pass'), PASSWORD_DEFAULT);
 
-            if (empty($new_pass) || empty($old_pass)) {
-                die('Please missing.');
+            if (isset($old_pass)) {
+                if (empty($new_pass)) {
+                    die('Please missing.');
+                }
+
+                $this->user->changePassword($old_pass, $new_pass);
             }
 
-            if (password_verify($old_pass, $this->user->password)) {
-                $this->user->password = $new_pass;
-
-                if ($this->user->save()) {
-                    header('Location: ' . HTTP_ROOT);
-                }
-            } else {
-                die('Wrong old password or empty new password.');
+            $avatar = $_FILES['avatar'];
+            if (isset($avatar)) {
+                $this->user->saveAvatar($avatar);
             }
         }
     }
