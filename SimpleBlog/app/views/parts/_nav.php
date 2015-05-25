@@ -10,13 +10,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ HTTP_ROOT ~ 'posts' }}">Posts <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">About</a></li>
+                {% if help.logged_in %}<li><a href="{{ HTTP_ROOT ~ 'users/show/' ~ help.current_user }}">Profile</a></li>{% endif %}
               </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% if auth %}Signed in as {{ auth }} {% endif %}<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {% if help.logged_in %}Signed in as {{ help.auth() }} {% endif %}<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        {% if not auth %}
+                        {% if not help.auth() %}
                         <li><a href="{{ HTTP_ROOT ~ 'auth/login'}}">Login</a></li>
                         <li><a href="{{ HTTP_ROOT ~ 'auth/register'}}">Register</a></li>
                         {% else %}
