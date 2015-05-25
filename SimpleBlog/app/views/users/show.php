@@ -13,8 +13,9 @@
 <h3>{{ user.name }}</h3>
 
 <ul>
-	{% for post in user.posts.findMany() %}
-	<li><a href="{{ HTTP_ROOT ~ 'posts/show/' ~ post.id }} ">{{ post.title }}</a></li>
-	{% endfor %}
+    {% set posts = user.posts().findMany() %}
+    {% for post in posts %}
+    <li><a href="{{ HTTP_ROOT ~ 'posts/show/' ~ post.id }} ">{{ post.title }}</a></li>
+    {% endfor %}
 </ul>
 {% endblock %}

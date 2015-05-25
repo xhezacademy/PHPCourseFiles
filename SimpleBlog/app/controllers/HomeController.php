@@ -8,9 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $auth = isset($_SESSION['user']) ? $_SESSION['user'] : false;
-
-        $this->view('home/index', compact('auth'));
+        $this->view('home/index', null);
     }
 
     public static function about()

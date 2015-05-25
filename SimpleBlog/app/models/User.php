@@ -8,7 +8,7 @@ class User extends Model
 
 	public function posts()
 	{
-        return $this->hasMany('Post');
+        return $this->hasMany('Post', 'user_id');
     }
 
     public static function isAuthenticated()
