@@ -7,7 +7,7 @@ define('ASSET_ROOT', INC_ROOT . 'public/assets');
 define('HTTP_ROOT',
     'http://' . $_SERVER['HTTP_HOST'] .
     str_replace(
-        'Applications/MAMP/htdocs/',
+        'C:/wamp/www',
         '',
         str_replace('\\', '/', INC_ROOT.'/public/')
     )
