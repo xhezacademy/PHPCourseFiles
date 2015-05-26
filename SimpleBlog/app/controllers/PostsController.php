@@ -1,8 +1,8 @@
 <?php
-// namespace SimpleBlog\Controllers;
+namespace SimpleBlog\controllers;
 
-// use SimpleBlog\Core\Controller;
-
+use SimpleBlog\Core\Controller;
+use SimpleBlog\Models\Post;
 /**
  * Posts Controller
  */

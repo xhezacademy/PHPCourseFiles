@@ -1,24 +1,27 @@
 <?php
-// namespace SimpleBlog\Controllers;
+namespace SimpleBlog\Controllers;
+
+use SimpleBlog\Core\Controller;
 
 /**
-*
-*/
+ *
+ */
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        // $this->layout = $this->setBaseLayout('layout/default.php');
-    }
-
     public function index()
     {
-        return $this->view('home/index', null);
+        $this->view('home/index', null);
+        return true;
     }
 
-    public static function about()
+    public function about()
     {
         echo 'home/about';
+    }
+
+    public function selfInstance()
+    {
+        return $this;
     }
 
     protected function setBaseLayout($name) {

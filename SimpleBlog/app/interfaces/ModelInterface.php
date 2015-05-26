@@ -1,5 +1,5 @@
 <?php
-//namespace SimpleBlog\Interfaces;
+namespace SimpleBlog\Interfaces;
 
 interface ModelInterface
 {

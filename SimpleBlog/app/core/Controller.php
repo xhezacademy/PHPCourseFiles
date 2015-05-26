@@ -1,5 +1,5 @@
 <?php
-// namespace SimpleBlog\Core;
+namespace SimpleBlog\Core;
 
 /**
  * The controller class.

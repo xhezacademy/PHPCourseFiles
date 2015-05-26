@@ -1,4 +1,7 @@
 <?php
+namespace SimpleBlog\Core;
+
+use SimpleBlog\Models\User;
 
 class Helpers
 {

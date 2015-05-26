@@ -1,6 +1,8 @@
 <?php
+namespace SimpleBlog\controllers;
 
-use Intervention\Image\ImageManagerStatic as Image;
+use SimpleBlog\Core\Controller;
+use SimpleBlog\Models\User;
 
 /**
  * Controller to handle User related routes

@@ -1,8 +1,12 @@
 <?php
+namespace SimpleBlog\Models;
+
+use SimpleBlog\Interfaces\ModelInterface;
+
 /**
  * User Model
  */
-class User extends Model implements ModelInterface
+class User extends \Model implements ModelInterface
 {
 	public static $_table = 'users';
 
@@ -16,6 +20,8 @@ class User extends Model implements ModelInterface
         if (array_key_exists('user', $_SESSION) && !empty($_SESSION['user'])) {
             return self::where('email', $_SESSION['user'])->findOne();
         }
+
+        return false;
     }
 
     public function storeAvatar($avatar)

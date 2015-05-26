@@ -19,17 +19,16 @@
         "twig/twig": "~1.0"
     },
     "require-dev": {
-        "filp/whoops": "^1.1"
+        "filp/whoops": "^1.1",
+        "phpunit/phpunit": "4.6.*"
     },
     "autoload": {
-        "classmap": [
-            "app/controllers",
-            "app/interfaces",
-            "app/models",
-            "app/core"
-        ],
-        "files": [
-            "app/core/Helpers.php"
-        ]
+        "psr-4": {
+          "SimpleBlog\\": "app/"
+        },
+        "files": [ "app/common.php" ]
+    },
+    "autoload-dev": {
+        "psr-4": { "SimpleBlog\\Tests\\": "tests/" }
     }
 }

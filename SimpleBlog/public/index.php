@@ -5,4 +5,9 @@
 
 require_once '../app/start.php';
 
-$app = new App();
+/**
+ * Start Session
+ */
+session_start();
+
+$app = new SimpleBlog\Core\App();

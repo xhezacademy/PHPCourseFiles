@@ -1,5 +1,5 @@
 <?php
-// namespace SimpleBlog\Core;
+namespace SimpleBlog\Core;
 
 use Whoops\Run as WhoopsRun;
 use Whoops\Handler\PrettyPageHandler as WhoopsPrettyPageHandler;
@@ -36,7 +36,8 @@ class App
         }
 
         require_once '../app/controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller();
+        $fullControllerName = 'SimpleBlog\\Controllers\\' . $this->controller;
+        $this->controller = new $fullControllerName();
 
         if (isset($url[1])) {
             if (method_exists($this->controller, $url[1])) {

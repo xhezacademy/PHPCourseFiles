@@ -1,8 +1,10 @@
 <?php
+namespace SimpleBlog\Models;
 
+use SimpleBlog\Interfaces\ModelInterface;
 use Carbon\Carbon;
 
-class Post extends Model implements ModelInterface
+class Post extends \Model implements ModelInterface
 {
 	public static $_table = 'posts';
 
