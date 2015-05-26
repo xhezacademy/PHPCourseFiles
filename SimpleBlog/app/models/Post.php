@@ -7,10 +7,11 @@ use Carbon\Carbon;
 class Post extends \Model implements ModelInterface
 {
 	public static $_table = 'posts';
+//    public static $_table_use_short_name = true;
 
 	public function user()
 	{
-		return $this->belongsTo('User', 'user_id');
+		return $this->belongsTo('SimpleBlog\Models\User', 'user_id');
 	}
 
     public function pubDate()

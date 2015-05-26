@@ -18,12 +18,13 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::findOne($id);
+        $user = $post->user()->findOne();
 
         // if ($post === null) {
         //   die('There is no post with that ID.');
         // }
 
-        $this->view('posts/show', compact('post'));
+        $this->view('posts/show', compact('post', 'user'));
     }
 
     public function create()

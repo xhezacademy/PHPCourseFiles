@@ -9,10 +9,11 @@ use SimpleBlog\Interfaces\ModelInterface;
 class User extends \Model implements ModelInterface
 {
 	public static $_table = 'users';
+//    public static $_table_use_short_name = true;
 
 	public function posts()
 	{
-        return $this->hasMany('Post', 'user_id');
+        return $this->hasMany('SimpleBlog\Models\Post', 'user_id');
     }
 
     public static function isAuthenticated()

@@ -11,7 +11,11 @@
 <hr>
 
 <h2>{{ post.title }}</h2>
-<small>{{ post.pubDate() }}</small>
+<small>
+    Written by: {{ user.name }}
+    |
+    Published at: {{ post.pubDate() }}
+</small>
 
 <p>{{ post.body }}</p>
 {% endblock %}
