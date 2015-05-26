@@ -15,7 +15,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {% if help.logged_in %}Signed in as {{ help.auth() }} {% endif %}<span class="caret"></span></a>
+                        {% if help.logged_in %}
+                        <img src="{{ help.get_gravatar(help.auth, 30) }}" alt="User Profile"/>
+                        {% endif %}<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         {% if not help.auth() %}
                         <li><a href="{{ HTTP_ROOT ~ 'auth/login'}}">Login</a></li>
